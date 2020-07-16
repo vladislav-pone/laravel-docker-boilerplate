@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  app:
+    build:
+      context: ./app
+      dockerfile: ../Dockerfile
+    tty: true
+    networks:
+      - app-network
+    volumes:
+      - ./app:/var/www
+  nginx:
+    image: nginx:alpine
+    tty: true
+    volumes:
+      - ./app:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "8080:80"
+      # - "443:443"
+    networks:
+      - app-network
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: rootroot
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+  redis:
+    image: redis:6.0.5
+
+networks:
+  app-network:
+    driver: bridge
