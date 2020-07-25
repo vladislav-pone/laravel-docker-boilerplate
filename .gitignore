@@ -1,3 +1,4 @@
-/app/*
 /db_data/*
-!/db_data/.gitkeep
+/redis_data/*
+**.env
+!**.gitkeep
