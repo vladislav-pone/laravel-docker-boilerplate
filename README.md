@@ -1,6 +1,6 @@
 ## Boilerplate
 
-Bolierpalte I use to quckly set up Laravel, Lumen or any PHP projects on docker.
+Boilerplate I use to quickly set up Laravel, Lumen or any PHP projects on Docker.
 
 ## Installation
 
