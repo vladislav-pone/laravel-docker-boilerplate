@@ -38,7 +38,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
 
 #PHPRedis via PECL
-RUN pecl install -o -f redis && rm -rf /tmp/pear
+RUN pecl install -o -f redis && rm -rf /tmp/pear &&  docker-php-ext-enable redis
 
 # Add user for laravel application
 RUN groupadd -g 1000 www

@@ -48,6 +48,8 @@ services:
       - REDIS_APPENDFSYNC=always
     volumes:
       - ./redis_data:/data
+    networks:
+      - app-network
 
 networks:
   app-network:
